@@ -52,5 +52,6 @@
     "pre-commit": "1.2.2",
     "prettier": "1.14.2",
     "then-sleep": "1.0.1"
+    "@types/retry": "0.12.0"
   }
 }
