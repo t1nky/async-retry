@@ -10,7 +10,8 @@
     "lint:staged": "lint-staged"
   },
   "files": [
-    "lib"
+    "lib",
+    "index.d.ts"
   ],
   "license": "MIT",
   "repository": "zeit/async-retry",
