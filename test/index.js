@@ -129,3 +129,23 @@ test('with number of retries', async t => {
     t.deepEqual(retries, 2);
   }
 });
+
+test('wait for async onRetry', async t => {
+  const timeout = 1000;
+  let before;
+  let after;
+
+  try {
+    await retry(() => fetch('https://www.fakewikipedia.org'), {
+      retries: 2,
+      awaitOnRetry: true,
+      onRetry: async () => {
+        before = Date.now();
+        await sleep(timeout);
+        after = Date.now();
+      }
+    });
+  } catch (err) {
+    t.is(after - before >= timeout, true);
+  }
+});
